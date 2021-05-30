@@ -35,10 +35,9 @@ Tool for storing and sorting data
 
 > python -m virtualenv venv
 
-> cat exports.sh >> venv/bin/activate
-
-> #### `exports.sh` file content
->
+#### `Note:` We store our security data in separate file, to prevent access from `settings.py`
+> `exports.sh`
+> 
 >> export SECRET_KEY='`secret_key_here`'
 >>
 >> export DB_NAME='`db_name_here`'
@@ -50,6 +49,10 @@ Tool for storing and sorting data
 >> export DB_HOST='`db_host_here`'
 >> 
 >> export DB_PORT='`db_port_here`'
+ 
+> ln -s exports.sh venv/bin/exports.sh
+
+> echo '. exports.sh' >> venv/bin/activate
 
 > . venv/bin/activate
 
