@@ -15,17 +15,17 @@ Tool for storing and sorting data
 
 > sudo -u postgres psql
 
-> CREATE DATABASE zettelkasten;
+> CREATE DATABASE `db_name_here`;
 
-> CREATE USER zettelkasten_user WITH PASSWORD 'ZettelKasten';
+> CREATE USER `db_user_here` WITH PASSWORD `db_pass_here`;
 
-> ALTER ROLE zettelkasten_user SET client_encoding TO 'utf8';
+> ALTER ROLE `db_user_here` SET client_encoding TO 'utf8';
 
-> ALTER ROLE zettelkasten_user SET default_transaction_isolation TO 'read committed';
+> ALTER ROLE `db_user_here` SET default_transaction_isolation TO 'read committed';
 
-> ALTER ROLE zettelkasten_user SET timezone TO 'UTC';
+> ALTER ROLE `db_user_here` SET timezone TO 'UTC';
 
-> GRANT ALL PRIVILEGES ON DATABASE zettelkasten TO zettelkasten_user;
+> GRANT ALL PRIVILEGES ON DATABASE zettelkasten TO `db_user_here`;
 
 > \q
 
@@ -34,6 +34,22 @@ Tool for storing and sorting data
 > cd Zettelkasten
 
 > python -m virtualenv venv
+
+> cat exports.sh >> venv/bin/activate
+
+> #### `exports.sh` file content
+>
+>> export SECRET_KEY='`secret_key_here`'
+>>
+>> export DB_NAME='`db_name_here`'
+>> 
+>> export DB_USER='`db_user_here`'
+>> 
+>> export DB_PASS='`db_pass_here`'
+>> 
+>> export DB_HOST='`db_host_here`'
+>> 
+>> export DB_PORT='`db_port_here`'
 
 > . venv/bin/activate
 
